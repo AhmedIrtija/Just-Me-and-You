@@ -2,7 +2,7 @@ function createCollage() {
     const collageDiv = document.getElementById('collage');
     collageDiv.innerHTML = '';
 
-    const imageCount = 80; // Total number of images available
+    const imageCount = 195;
     const selectedImages = [];
 
     while (selectedImages.length < 5) {
