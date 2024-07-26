@@ -29,12 +29,10 @@ function createCollage() {
     animateImages();
 }
 
-// JavaScript function to show the message
 function showMessage() {
     const message = document.getElementById('message');
     message.classList.remove('hidden');
 }
-
 
 function getFanRotation(index) {
     const fanAngle = 15; // Degrees to rotate each image
@@ -71,21 +69,58 @@ function enlargeImage(img) {
     document.body.appendChild(enlarged);
 }
 
+let currentImageBatch = 0;
+const imagesPerBatch = 20;
 
 function showAllImages() {
     const popup = document.getElementById('imagePopup');
     const thumbnailContainer = document.getElementById('thumbnailContainer');
-    thumbnailContainer.innerHTML = '';
 
-    for (let i = 1; i <= 195; i++) {
-        const img = document.createElement('img');
-        img.src = `images/${i}.jpg`; // Ensure the path matches your image source
-        img.alt = `Image ${i}`;
-        img.classList.add('thumbnail');
-        img.onclick = () => enlargeImage(img);
-        thumbnailContainer.appendChild(img);
+    function loadImages() {
+        thumbnailContainer.innerHTML = ''; // Clear current images
+
+        const start = currentImageBatch * imagesPerBatch + 1;
+        const end = Math.min(start + imagesPerBatch, 195 + 1);
+
+        for (let i = start; i < end; i++) {
+            const img = document.createElement('img');
+            img.src = `images/${i}.jpg`; // Ensure the path matches your image source
+            img.alt = `Image ${i}`;
+            img.classList.add('thumbnail');
+            img.onclick = () => enlargeImage(img);
+            thumbnailContainer.appendChild(img);
+        }
+
+        const navContainer = document.createElement('div');
+        navContainer.classList.add('nav-container');
+
+        if (currentImageBatch > 0) {
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Previous';
+            prevButton.classList.add('nav-button');
+            prevButton.onclick = () => {
+                currentImageBatch--;
+                loadImages();
+            };
+            navContainer.appendChild(prevButton);
+        }
+
+        if (end <= 195) {
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.classList.add('nav-button');
+            nextButton.onclick = () => {
+                currentImageBatch++;
+                loadImages();
+            };
+            navContainer.appendChild(nextButton);
+        }
+
+        thumbnailContainer.appendChild(navContainer);
     }
 
+    currentImageBatch = 0; // Reset batch counter
+    loadImages();
     popup.classList.remove('hidden');
 }
 

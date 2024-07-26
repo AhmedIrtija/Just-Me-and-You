@@ -161,3 +161,26 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    background-color: #ff0116; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+}
+
