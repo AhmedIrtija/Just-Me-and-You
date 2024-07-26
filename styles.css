@@ -16,8 +16,8 @@ body {
     color: #333;
     text-align: center;
     padding: 20px;
-    position: relative; /* Position relative to control z-index */
-    z-index: 0; /* Lower z-index to keep it behind other content */
+    position: relative; 
+    z-index: 0;
 }
 
 main {
@@ -27,8 +27,8 @@ main {
     justify-content: center;
     min-height: 100vh;
     text-align: center;
-    position: relative; /* Ensuring position is not static */
-    z-index: 1; /* Higher z-index to ensure it's on top of the background */
+    position: relative; 
+    z-index: 1; 
 }
 
 
@@ -48,11 +48,11 @@ h1 {
     justify-content: center;
 }
 .gif-container.left {
-    margin-right: auto; /* Pushes everything else to the right */
+    margin-right: auto; 
 }
 
 .gif-container.right {
-    margin-left: auto; /* Pushes everything else to the left */
+    margin-left: auto; 
 }
 
 .button-group {
@@ -136,8 +136,8 @@ button:hover {
     color: #555;
     font-family: 'Trebuchet MS', sans-serif;
     text-align: left;
-    position: relative; /* Important for z-index to take effect */
-    z-index: 2; /* Ensure it's on top */
+    position: relative; 
+    z-index: 2;
 }
 
 
@@ -151,7 +151,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Very high z-index to ensure it's on top of everything */
+    z-index: 1000; 
     overflow: auto;
 }
 
@@ -270,7 +270,7 @@ button {
     justify-content: start;
     align-items: center;
     overflow: hidden;
-    max-width: 35%; /* adjust this if the button text is not proper */
+    max-width: 35%;
     font-size: 2em;
     font-weight: 600;
   }

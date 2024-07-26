@@ -35,16 +35,16 @@ function showMessage() {
 }
 
 function getFanRotation(index) {
-    const fanAngle = 15; // Degrees to rotate each image
-    return (index - 2) * fanAngle; // Adjust -2 to center the fan
+    const fanAngle = 15; 
+    return (index - 2) * fanAngle; 
 }
 
 function getRandomSize() {
-    return Math.floor(Math.random() * 100) + 300; // Random size between 300px and 400px
+    return Math.floor(Math.random() * 100) + 300; 
 }
 
 function getRandomPosition() {
-    return Math.floor(Math.random() * 30) - 15; // Random translation between -15px and 15px
+    return Math.floor(Math.random() * 30) - 15; 
 }
 
 function animateImages() {
@@ -52,7 +52,7 @@ function animateImages() {
     images.forEach((img, index) => {
         setTimeout(() => {
             img.classList.add('settle');
-        }, index * 1000); // Each image appears after 1 second
+        }, index * 1000); 
     });
 }
 
@@ -77,14 +77,14 @@ function showAllImages() {
     const thumbnailContainer = document.getElementById('thumbnailContainer');
 
     function loadImages() {
-        thumbnailContainer.innerHTML = ''; // Clear current images
+        thumbnailContainer.innerHTML = ''; 
 
         const start = currentImageBatch * imagesPerBatch + 1;
         const end = Math.min(start + imagesPerBatch, 195 + 1);
 
         for (let i = start; i < end; i++) {
             const img = document.createElement('img');
-            img.src = `images/${i}.jpg`; // Ensure the path matches your image source
+            img.src = `images/${i}.jpg`; 
             img.alt = `Image ${i}`;
             img.classList.add('thumbnail');
             img.onclick = () => enlargeImage(img);
@@ -119,7 +119,7 @@ function showAllImages() {
         thumbnailContainer.appendChild(navContainer);
     }
 
-    currentImageBatch = 0; // Reset batch counter
+    currentImageBatch = 0; 
     loadImages();
     popup.classList.remove('hidden');
 }
