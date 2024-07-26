@@ -6,24 +6,60 @@
 }
 
 body {
-    background-image: url('background.jpg');
-    background-size: cover; 
+    background-image: url('images\\background.jpg');
+    background-size: contain; 
     background-position: center; 
     background-repeat: no-repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #000000; 
+    background-color: rgb(153, 0, 255);
     color: #333;
     text-align: center;
     padding: 20px;
+    position: relative; /* Position relative to control z-index */
+    z-index: 0; /* Lower z-index to keep it behind other content */
 }
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    position: relative; /* Ensuring position is not static */
+    z-index: 1; /* Higher z-index to ensure it's on top of the background */
+}
+
+
 
 header {
     margin-bottom: 20px;
 }
 
 h1 {
-    color: #ff0000; 
+    color: #000000; 
+}
+
+.gif-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.gif-container.left {
+    margin-right: auto; /* Pushes everything else to the right */
+}
+
+.gif-container.right {
+    margin-left: auto; /* Pushes everything else to the left */
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-container {
@@ -48,6 +84,7 @@ button:hover {
 .collage {
     position: relative;
     padding: 20px;
+    z-index: 1000;
 }
 
 .collage img {
@@ -56,6 +93,7 @@ button:hover {
     cursor: pointer;
     position: absolute;
     border-radius: 30px;
+    z-index: 1000;
 }
 
 .collage img.settle {
@@ -63,6 +101,7 @@ button:hover {
     margin: 10px;
     cursor: pointer;
     transform-origin: center bottom;
+    z-index: 1000;
 }
 
 .enlarged {
@@ -90,13 +129,15 @@ button:hover {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.8);
     padding: 15px;
     border-radius: 10px;
     line-height: 1.8;
     color: #555;
-    font-family: 'Trebuchet MS', sans-serif; 
+    font-family: 'Trebuchet MS', sans-serif;
     text-align: left;
+    position: relative; /* Important for z-index to take effect */
+    z-index: 2; /* Ensure it's on top */
 }
 
 
@@ -110,7 +151,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1000; /* Very high z-index to ensure it's on top of everything */
     overflow: auto;
 }
 
